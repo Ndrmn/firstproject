@@ -1,0 +1,39 @@
+body {
+    box-sizing: border-box;
+}
+.container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+
+.nav {
+    display: flex;
+    padding: 10px;
+}
+form {
+    width: 500px;
+}
+textarea {
+    resize: vertical;
+    width: 500px;
+}
+input {
+    width: 500px;
+}
+
+.btn {
+    border: 1px solid black;
+    align-self: center;
+    margin: 10px;
+}
+.btnSubm {
+    margin-top: 10px;
+}
+.card {
+    margin: 10px;
+}
+.date-small {
+    padding: 5px;
+    font-size: 12px;
+}
