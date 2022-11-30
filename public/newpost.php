@@ -12,7 +12,7 @@
 <body>
 <div class="container">
     <h1>My blog</h1>
-    <div class="nav">
+    <div class="navigation">
         <button class="btn" onclick="document.location='index.php'">Feed</button>
         <button class="btn" onclick="document.location='newpost.php'">Add post</button>
     </div>

@@ -7,7 +7,7 @@
     $filedir = $path.$imagename;
 
 
-    $pdo = new PDO('mysql:host=172.18.0.4;dbname=firstproject','docker','secret');
+    $pdo = new PDO('mysql:host=172.18.0.2;dbname=firstproject','docker','secret');
 
     $sql = 'INSERT INTO posts(title, text, picture) VALUES(:name, :fulltext, :picture)';
     $query = $pdo->prepare($sql);

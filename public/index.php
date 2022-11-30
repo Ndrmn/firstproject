@@ -13,44 +13,29 @@
 <div class="container">
 
     <h1>My blog</h1>
-    <div class="nav">
+    <div class="navigation">
         <button class="btn" onclick="document.location='index.php'">Feed</button>
         <button class="btn" onclick="document.location='newpost.php'">Add post</button>
     </div>
     <div><h2>Feed</h2></div>
 
-    <!-- <div class="card" style="width: 18rem;">
-        <img src="assets/images/orig.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-        <a href="#" class="btn btn-primary">More</a>
-    </div> -->
-
     <?php
 
-    $pdo = new PDO('mysql:host=172.18.0.4;dbname=firstproject','docker','secret');
+    $pdo = new PDO('mysql:host=172.18.0.2;dbname=firstproject','docker','secret');
 
-    $query = $pdo->query('SELECT * FROM `posts`');
+    $query = $pdo->query('SELECT * FROM `posts`  ORDER BY `id` DESC');
     while($row = $query->fetch(PDO::FETCH_OBJ)) {
 
 
-        echo '<div class="card" style="width: 18rem;">';
-        echo    '<img src="'.$row->picture.'" class="card-img-top" alt="...">';
+        echo'<div class="card" style="width: 18rem;">';
+        echo    '<img src="./'.$row->picture.'" class="card-img-top" alt="...">';
         echo    '<div class="card-body">';
-        echo        '<h5 class="card-title">';
-                echo $row->title;
-                echo        '</h5>';
-                echo           '<p class="card-text">';
-                    echo $row->text;
-                    echo  '</p>';
-                    echo        '</div> <a href="#" class="btn btn-primary">More</a>';
-
-                    echo '<p class="card-text date-small">';
-                    echo $row->date;
-                    echo '</p>';
-                    echo   '</div>';
+        echo        '<h5 class="card-title">'.$row->title.'</h5>';
+        echo        '<p class="card-text">'.$row->text.'</p>';
+        echo    '</div>';
+        echo    '<a href="/post.php/?id='.$row->id.'" class="btn btn-primary">More</a>';
+        echo    '<p class="card-text date-small">'.$row->date.'</p>';
+        echo'</div>';
     };
     ?>
 
